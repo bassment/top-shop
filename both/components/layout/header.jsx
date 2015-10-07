@@ -2,7 +2,7 @@ Header = React.createClass({
   render() {
     return (
       <header>
-        <nav className="navbar navbar-default">
+        <nav id="custom-nav" className="navbar navbar-default navbar-fixed-top">
           <div className="container-fluid">
             <div className="navbar-header">
               <button type="button"
@@ -22,7 +22,7 @@ Header = React.createClass({
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul className="nav navbar-nav">
+              <ul className="nav navbar-nav pull-right">
                 <li><a href={FlowRouter.path('shoes')}>Shoes<span className="sr-only">(current)</span></a></li>
                 <li><a href={FlowRouter.path('clothes')}>Clothes</a></li>
               </ul>
