@@ -1,23 +1,12 @@
 var {
   RaisedButton,
-  ListItem,
-  ListDivider,
-  List
+  Styles,
+  Checkbox
 } = MUI;
 
-var { ThemeManager, LightRawTheme } = MUI.Styles;
+var { ThemeManager } = Styles;
 
 Shoes = React.createClass({
-  childContextTypes: {
-        muiTheme: React.PropTypes.object
-    },
-
-  getChildContext() {
-      return {
-          muiTheme: ThemeManager.getMuiTheme(LightRawTheme)
-      };
-  },
-
   render() {
     return (
       <div>
@@ -29,22 +18,17 @@ Shoes = React.createClass({
               primary={true}
               href="/clothes"
               label="Clothes" />
-          </div>
-          <div className="col-md-6 col-md-offset-3">
-            <List>
-              <ListItem primaryText="Inbox"  />
-              <ListItem primaryText="Starred"  />
-              <ListItem primaryText="Sent mail"  />
-              <ListItem primaryText="Drafts"  />
-              <ListItem primaryText="Inbox"  />
-            </List>
-            <ListDivider />
-            <List>
-              <ListItem primaryText="All mail"  />
-              <ListItem primaryText="Trash"  />
-              <ListItem primaryText="Spam"  />
-              <ListItem primaryText="Follow up"  />
-            </List>
+            <Checkbox id="checkboxId1"
+              name="checkboxName1"
+              value="checkboxValue1"
+              label="went for a run today"
+              style={{
+                width: '50%',
+                margin: '0'
+              }}
+              iconStyle={{
+                fill: '#FF4081'
+              }} />
           </div>
         </div>
       </div>

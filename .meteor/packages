@@ -22,3 +22,4 @@ react
 twbs:bootstrap
 kadira:flow-router-ssr
 izzilab:material-ui
+reactrouter:react-router
