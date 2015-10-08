@@ -4,12 +4,12 @@ var ColorManipulator = MUI.Utils.ColorManipulator;
 
 myTheme = {
   spacing: Spacing,
-  fontFamily: 'Helvetica Neue',
+  fontFamily: 'Roboto, sans-serif',
   palette: {
-    primary1Color: Colors.cyan500,
+    primary1Color: "#E64A19",
     primary2Color: Colors.cyan700,
     primary3Color: Colors.lightBlack,
-    accent1Color: Colors.indigo500,
+    accent1Color: '#CDDC39',
     accent2Color: Colors.grey100,
     accent3Color: Colors.grey500,
     textColor: Colors.darkBlack,

@@ -1,4 +1,6 @@
-var { Styles } = MUI;
+injectTapEventPlugin();
+
+var { Styles, AppCanvas } = MUI;
 var { ThemeManager } = Styles;
 
 MainLayout = React.createClass({
@@ -6,11 +8,11 @@ MainLayout = React.createClass({
        muiTheme: React.PropTypes.object.isRequired
    },
 
-   getChildContext() {
-       return {
-           muiTheme: ThemeManager.getMuiTheme(myTheme)
-       };
-   },
+  getChildContext() {
+     return {
+         muiTheme: ThemeManager.getMuiTheme(myTheme)
+     };
+  },
 
   render() {
     DocHead.addLink({
@@ -19,11 +21,10 @@ MainLayout = React.createClass({
       href: "https://fonts.googleapis.com/css?family=Roboto:400,300,500"
     });
     return (
-      <div>
-        <Header />
-        <Shoes />
+      <AppCanvas>
+        <DesktopMenu />
         <main>{this.props.content}</main>
-      </div>
+      </AppCanvas>
     );
   }
 });
