@@ -4,7 +4,6 @@ Home = React.createClass({
   render() {
     return (
       <Paper style={styles.paper} zDepth={4}>
-
         <p>Fashion is a popular style or practice, especially in clothing, footwear,
           accessories, makeup, body piercing, or furniture. Fashion is a distinctive and often habitual trend in the style
           in which a person dresses. It is the prevailing styles in behaviour and the newest creations of textile designers.
@@ -68,7 +67,6 @@ Home = React.createClass({
 var styles = {
   paper: {
     background: '#FFCCBC',
-    width: '50%',
-    margin: '100px auto 50px'
+    marginTop: 100
   }
 };

@@ -44,8 +44,9 @@ MainLayout = React.createClass({
     return (
       <AppCanvas>
         <DesktopMenu />
-        <Home />
-        <main>{this.props.content}</main>
+        <div className="container">
+          <main>{this.props.content}</main>
+        </div>
       </AppCanvas>
     );
   }

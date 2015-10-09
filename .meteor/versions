@@ -5,11 +5,9 @@ babel-runtime@0.1.4
 base64@1.0.4
 binary-heap@1.0.4
 blaze@2.1.3
-blaze-html-templates@1.0.1
 blaze-tools@1.0.4
 boilerplate-generator@1.0.4
 caching-compiler@1.0.0
-caching-html-compiler@1.0.2
 callback-hook@1.0.4
 check@1.0.6
 chuangbo:cookie@1.1.0
@@ -44,7 +42,6 @@ launch-screen@1.0.4
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
-markoshust:radium@0.0.3
 meteor@1.1.9
 meteor-base@1.0.1
 meteorhacks:fast-render@2.9.0
@@ -77,8 +74,6 @@ session@1.1.1
 spacebars@1.0.7
 spacebars-compiler@1.0.7
 standard-minifiers@1.0.1
-templating@1.1.4
-templating-tools@1.0.0
 tracker@1.0.9
 ui@1.0.8
 underscore@1.0.4
