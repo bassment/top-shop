@@ -25,7 +25,7 @@ MainLayout = React.createClass({
   },
 
   childContextTypes: {
-       muiTheme: React.PropTypes.object.isRequired
+       muiTheme: React.PropTypes.object
    },
 
   getChildContext() {
@@ -35,12 +35,12 @@ MainLayout = React.createClass({
   },
 
   render() {
-    this.setFavicon();
     DocHead.addLink({
       rel: "stylesheet",
       type: "text/css",
       href: "https://fonts.googleapis.com/css?family=Roboto:400,300,500"
     });
+    this.setFavicon();
     return (
       <AppCanvas>
         <DesktopMenu />

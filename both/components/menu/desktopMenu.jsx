@@ -6,39 +6,96 @@ var {
   Tab,
   IconMenu,
   MenuItem,
-  IconButton
+  IconButton,
+  Dialog
  } = MUI;
 
 DesktopMenu = React.createClass({
+  getInitialState() {
+    return {
+      tabsValue: this._findTab()
+    };
+  },
+
+
   render() {
     return (
-      <Paper style={styles.paper} zDepth={2} rounded={false}>
-        <EnhancedButton
-          style={styles.button}
-          linkButton={true}
-          href={FlowRouter.path('home')}
-          centerRipple={true}>
-            <img style={styles.logoImage} src="/images/Logo.png" />
-            <span style={styles.logoText}>Top Shop</span>
-        </EnhancedButton>
-        <div style={styles.tabsRight}>
-          <Tabs style={styles.tabs}>
-            <Tab style={styles.tab} label="Shoes" />
-            <Tab style={styles.tab} label="Clothes" />
-            <Tab style={styles.tab} label="Hats" />
-          </Tabs>
-        </div>
-        <IconMenu style={styles.menuIcon} iconButtonElement={
-            <IconButton iconStyle={styles.buttonIcon} iconClassName="zmdi zmdi-more-vert" tooltip="Menu"/>}
-            openDirection="bottom-left" >
-            <MenuItem index={0}>Payment&nbsp;Methods</MenuItem>
-            <MenuItem index={1}>Register</MenuItem>
-            <MenuItem index={2}>Sign&nbsp;In</MenuItem>
-        </IconMenu>
-      </Paper>
+      <div>
+        <Dialog
+            title="Login"
+            ref="Login">
+            Insert your login info here
+        </Dialog>
+        <Paper style={styles.paper} zDepth={2} rounded={false}>
+          <EnhancedButton
+            style={styles.button}
+            onClick={this._goHome}
+            centerRipple={true}>
+              <img style={styles.logoImage} src="/images/Logo.png" />
+              <span style={styles.logoText}>Top Shop</span>
+          </EnhancedButton>
+          <div style={styles.tabsRight}>
+            <Tabs style={styles.tabs}
+              valueLink={{value: this.state.tabsValue, requestChange: this._handleTabsChange}}
+              initialSelectedIndex={this.state.selectTabIfRoute}>
+              <Tab style={styles.tab} value='a' label="Shoes" onActive={this._goShoes} />
+              <Tab style={styles.tab} value='b' label="Clothes" onActive={this._goClothes} />
+              <Tab style={styles.tab} value='c' label="Hats" onActive={this._goHats}/>
+            </Tabs>
+          </div>
+          <IconMenu style={styles.menuIcon} onClick={this._loginDialog} iconButtonElement={
+              <IconButton iconStyle={styles.buttonIcon} iconClassName="zmdi zmdi-more-vert" tooltip="Menu"/>}
+              openDirection="bottom-left" >
+              <MenuItem index={0}>Login</MenuItem>
+          </IconMenu>
+        </Paper>
+      </div>
     );
+  },
+
+  _loginDialog() {
+    this.refs.Login.show();
+  },
+
+  _handleTabsChange(value) {
+    this.setState({
+      tabsValue: value
+    });
+  },
+
+  _findTab() {
+    var result = '';
+    switch(FlowRouter.getRouteName()) {
+      case 'home': result = 'd'; break;
+      case 'shoes': result = 'a'; break;
+      case 'clothes': result = 'b'; break;
+      case 'hats': result = 'c'; break;
+      }
+    return result;
+  },
+
+  _goHome() {
+    FlowRouter.go(FlowRouter.path('home'));
+    // deselect Tabs when going Home
+    this.setState({
+      tabsValue: 'd'
+    });
+  },
+
+  _goShoes() {
+    FlowRouter.go(FlowRouter.path('shoes'));
+  },
+
+  _goClothes() {
+    FlowRouter.go(FlowRouter.path('clothes'));
+  },
+
+  _goHats() {
+    FlowRouter.go(FlowRouter.path('hats'));
   }
+
 });
+
 
 var styles = {
   paper: {
@@ -56,15 +113,16 @@ var styles = {
     width: 200
   },
   logoImage: {
-    width: 65,
-    top: 20
+    position: 'relative',
+    width: 64,
+    right: 62
   },
   logoText: {
+    position: 'absolute',
     color: '#fff',
     fontSize: 26,
     fontWeight: 500,
     left: 70,
-    position: 'absolute',
     top: 18
   },
   tabsRight: {
