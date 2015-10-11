@@ -17,6 +17,11 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 kadira:react-layout
 kadira:dochead
 react
-kadira:flow-router-ssr
 izzilab:material-ui
 ixdi:material-design-iconic-font
+kadira:flow-router
+meteorhacks:npm
+cosmos:browserify
+
+
+npm-container

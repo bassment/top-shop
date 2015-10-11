@@ -17,7 +17,6 @@ DesktopMenu = React.createClass({
     };
   },
 
-
   render() {
     return (
       <div>
